@@ -1,0 +1,73 @@
+<div data-ng-controller="LicenseManagerController">
+    <form class="form main-form" id="license_form" name = 'licenseForm' >
+        <h2>License Creation Form </h2>
+
+        <div class="input-wrapper">
+            <input required id="userName" type="text" name="userName" placeholder="User Name"
+                   data-ng-model="user.userName" ng-blur="isUserExist()">
+            <div ng-click="usernameError = !usernameError" class="alert alert-danger animated fadeIn" ng-show="usernameError">{{usernameError}} </div>
+            <span class="pic user"></span>
+        </div>
+        <div class="input-wrapper">
+            <input type="radio"  ng-model="user.userRole" value = 'user'>  User
+            <input type="radio" ng-model="user.userRole" value = 'manager'> Team Manager
+        </div>
+        <div class="input-wrapper">
+            <input required id="noOfLicense" type="number" name="No Of License" placeholder="No of Licenses"
+                   data-ng-model="user.noOfLicenses" value={{noOfLicense}}}>
+        </div>
+        <div class="input-wrapper">
+            <input required id="email_block" type="email" name="email" placeholder="Email Address"
+                   data-ng-model="user.email">
+
+            <div class="error_message">Please enter a correct info #</div>
+            <span class="pic email"></span>
+        </div>
+        <div class="input-wrapper">
+            <input required id="mobileNo" type="text" name="mobileNo" placeholder="Mobile No"
+                   data-ng-model="user.mobileNo">
+            <div class="error_message">Please enter a correct info #</div>
+            <span class="pic mobile"></span>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <p class="input-group">
+                    <input type="text" class="form-control" datepicker-popup="{{format}}"
+                           ng-model="user.startDate" is-open="opened"
+                           datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true"
+                           close-text="Close" />
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="open($event)">
+                    <i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <p class="input-group">
+                    <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="user.endDate" is-open="opened"
+                            datepicker-options="dateOptions"
+                           date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="open($event)">
+                    <i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+                </p>
+            </div>
+        </div>
+        <!--<div class="btn-group" dropdown is-open="status.isopen">
+            <button type="button" class="btn btn-primary dropdown-toggle" dropdown-toggle ng-click="toggleDropdown($event)">
+                License Types <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+                <li ng-repeat='type in listOfLicense'>
+                    <div><a href="">{{type}}</a></div>
+                </li>
+            </ul>
+        </div>-->
+        <div class="button_register">
+            <button type="button" class="submit_button" data-ng-click="createLicense()">Sign up</button>
+        </div>
+    </form>
+</div>
