@@ -1,0 +1,32 @@
+<div data-ng-controller="LicenseManagerController">
+    <form class="form main-form" id="license_activation" name = 'licenseActivation' >
+        <div class="input-wrapper">
+            <input required id="userName" type="text" name="userName" placeholder="User Name"
+                   data-ng-model="user.userName" ng-blur="isUserExist()">
+            <div ng-click="usernameError = !usernameError" class="alert alert-danger animated fadeIn" ng-show="usernameError">{{usernameError}} </div>
+            <span class="pic user"></span>
+        </div>
+        <div class="input-wrapper">
+            <input required id="email_block" type="email" name="email" placeholder="Email Address"
+                   data-ng-model="user.email">
+
+            <div class="error_message">Please enter a correct info #</div>
+            <span class="pic email"></span>
+        </div>
+    <div class="input-wrapper">
+        <input required id="mobileNo" type="text" name="mobileNo" placeholder="Mobile No"
+               data-ng-model="user.mobileNo">
+        <div class="error_message">Please enter a correct info #</div>
+        <span class="pic mobile"></span>
+    </div>
+        <div class="input-wrapper">
+            <input required id="manager" type="text" name="manager" placeholder="Manage ID"
+                   data-ng-model="user.manager" ng-blur="getManagerLicenseId()">
+            <div class="error_message">Please enter a correct info #</div>
+            <span class="pic mobile"></span>
+        </div>
+        <div class="button_register">
+            <button type="button" class="submit_button" data-ng-click="generateUserLicense()">Activate</button>
+        </div>
+</form>
+</div>
